@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    logger: ['error', 'warn'],
+    // logger: ['error', 'warn'],
   })
   await app.listen(6969)
 }
