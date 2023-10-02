@@ -30,8 +30,7 @@ export class CreateAccountController {
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(createAccountBodySchema))
   async handle(@Body() body: CreateAccountBodySchma) {
-    const { name, email, password } = body
-
+    const { name, email, password } = createAccountBodySchema.parse(body)
     const userWithSameEmail = await this.prisma.user.findUnique({
       where: {
         email,

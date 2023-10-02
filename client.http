@@ -1,0 +1,22 @@
+@baseURL = http://localhost:6969
+
+# @name create_account
+POST {{baseURL}}/accounts
+Content-type: application/json
+
+{
+  "name": "Raphael Vaz",
+  "email": "raphael@wrath-codes.com",
+  "password": "123456"
+}
+
+###
+
+# @name authenticate_account
+POST {{baseURL}}/sessions
+Content-type: application/json
+
+{
+  "email": "raphael@wrath-codes.com",
+  "password": "123456"
+}
