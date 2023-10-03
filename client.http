@@ -28,3 +28,27 @@ Content-type: application/json
 POST {{baseURL}}/questions
 Content-type: application/json
 Authorization: Bearer {{authToken}}
+
+{
+  "title": "How to create a question?",
+  "content": "I'm trying to create a question using the API, but I don't know how to do it. Can someone help me?"
+}
+
+###
+
+# @name create_question_2
+POST {{baseURL}}/questions
+Content-type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "How to create a question 2?",
+  "content": "I'm trying to create a question using the API, but I don't know how to do it. Can someone help me?"
+}
+
+###
+
+# @name fetch_latest_questions
+GET  {{baseURL}}/questions?page=2
+Content-type: application/json
+Authorization: Bearer {{authToken}}
