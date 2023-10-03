@@ -1,4 +1,5 @@
 @baseURL = http://localhost:6969
+@authToken = {{authenticate.response.body.access_token}}
 
 # @name create_account
 POST {{baseURL}}/accounts
@@ -12,7 +13,7 @@ Content-type: application/json
 
 ###
 
-# @name authenticate_account
+# @name authenticate
 POST {{baseURL}}/sessions
 Content-type: application/json
 
@@ -20,3 +21,10 @@ Content-type: application/json
   "email": "raphael@wrath-codes.com",
   "password": "123456"
 }
+
+###
+
+# @name create_question
+POST {{baseURL}}/questions
+Content-type: application/json
+Authorization: Bearer {{authToken}}
