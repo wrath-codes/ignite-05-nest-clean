@@ -49,6 +49,6 @@ Authorization: Bearer {{authToken}}
 ###
 
 # @name fetch_latest_questions
-GET  {{baseURL}}/questions?page=2
+GET  {{baseURL}}/questions?page=1
 Content-type: application/json
 Authorization: Bearer {{authToken}}
