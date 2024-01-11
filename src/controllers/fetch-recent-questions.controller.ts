@@ -4,18 +4,17 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
 import { PrismaService } from 'src/prisma/prisma.service'
 import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe'
 import { z } from 'zod'
-import { type } from 'os'
 
-const pageQueryParamSchma = z
+const pageQueryParamSchema = z
   .string()
   .optional()
   .default('1')
   .transform(Number)
   .pipe(z.number().min(1))
 
-const queryValidationPipe = new ZodValidationPipe(pageQueryParamSchma)
+const queryValidationPipe = new ZodValidationPipe(pageQueryParamSchema)
 
-type PageQueryParamSchema = z.infer<typeof pageQueryParamSchma>
+type PageQueryParamSchema = z.infer<typeof pageQueryParamSchema>
 
 @Controller('/questions')
 @UseGuards(JwtAuthGuard)
