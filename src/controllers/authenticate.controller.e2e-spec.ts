@@ -2,7 +2,6 @@ import { AppModule } from '@/app.module'
 import { INestApplication } from '@nestjs/common'
 import { PrismaService } from '@/prisma/prisma.service'
 import { Test } from '@nestjs/testing'
-import { any } from 'zod'
 import { hash } from 'bcryptjs'
 import request from 'supertest'
 
