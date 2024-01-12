@@ -30,21 +30,21 @@ describe('Fetch Question Answers', () => {
     const question = makeQuestion({}, new UniqueEntityID('question-01'))
     await questionsRepository.create(question)
 
-    const answer_01 = makeAnswer(
+    const answer01 = makeAnswer(
       {
         questionId: question.id,
       },
       new UniqueEntityID('answer-01'),
     )
 
-    const answer_02 = makeAnswer(
+    const answer02 = makeAnswer(
       {
         questionId: question.id,
       },
       new UniqueEntityID('answer-02'),
     )
-    await answersRepository.create(answer_01)
-    await answersRepository.create(answer_02)
+    await answersRepository.create(answer01)
+    await answersRepository.create(answer02)
 
     const result = await sut.execute({
       questionId: question.id.toValue(),
@@ -54,10 +54,10 @@ describe('Fetch Question Answers', () => {
     expect(result.isRight()).toBe(true)
     expect(result.value?.answers).toMatchObject([
       expect.objectContaining({
-        id: answer_01.id,
+        id: answer01.id,
       }),
       expect.objectContaining({
-        id: answer_02.id,
+        id: answer02.id,
       }),
     ])
   })

@@ -18,7 +18,7 @@ class CustomAggregateCreated implements DomainEvent {
   }
 }
 
-class CustomAggregate extends AggregateRoot<any> {
+class CustomAggregate extends AggregateRoot<unknown> {
   static create() {
     const aggregate = new CustomAggregate(null)
 

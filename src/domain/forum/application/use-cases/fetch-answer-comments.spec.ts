@@ -25,22 +25,22 @@ describe('Fetch Answer Comments', () => {
     const answer = makeAnswer({}, new UniqueEntityID('answer-01'))
     await answersRepository.create(answer)
 
-    const answerComment_01 = makeAnswerComment(
+    const answerComment01 = makeAnswerComment(
       {
         answerId: answer.id,
       },
       new UniqueEntityID('answer-comment-01'),
     )
 
-    const answerComment_02 = makeAnswerComment(
+    const answerComment02 = makeAnswerComment(
       {
         answerId: answer.id,
       },
       new UniqueEntityID('answer-comment-02'),
     )
 
-    await answerCommentsRepository.create(answerComment_01)
-    await answerCommentsRepository.create(answerComment_02)
+    await answerCommentsRepository.create(answerComment01)
+    await answerCommentsRepository.create(answerComment02)
 
     const result = await sut.execute({
       answerId: answer.id.toValue(),
@@ -51,10 +51,10 @@ describe('Fetch Answer Comments', () => {
     expect(result.value?.answerComments).toHaveLength(2)
     expect(result.value?.answerComments).toMatchObject([
       expect.objectContaining({
-        id: answerComment_01.id,
+        id: answerComment01.id,
       }),
       expect.objectContaining({
-        id: answerComment_02.id,
+        id: answerComment02.id,
       }),
     ])
   })
